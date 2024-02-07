@@ -5,5 +5,7 @@ module Dradis
   end
 end
 
-require 'dradis/plugins/pentera/version'
 require 'dradis/plugins/pentera/engine'
+require 'dradis/plugins/pentera/field_processor'
+require 'dradis/plugins/pentera/importer'
+require 'dradis/plugins/pentera/version'

@@ -16,7 +16,4 @@ Gem::Specification.new do |spec|
   spec.files = `git ls-files`.split($\)
 
   spec.add_dependency 'dradis-plugins', '~> 4.0'
-
-  s.add_dependency 'combustion', '~> 0.6.0'
-  s.add_dependency 'rspec-rails'
 end
