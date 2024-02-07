@@ -1,0 +1,15 @@
+{
+  "id": "test_id",
+  "creation_time": 1651385523249,
+  "name": "Sample Vulnerability",
+  "summary": "Sample Description",
+  "found_on": "Target: 192.168.1.1",
+  "target": "Host",
+  "target_id": "host_id",
+  "port": 80,
+  "protocol": "http",
+  "severity": 9.3,
+  "priority": 1,
+  "insight": "Sample Insight",
+  "remediation": "Sample Remediation"
+}

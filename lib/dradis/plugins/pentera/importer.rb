@@ -1,5 +1,9 @@
 module Dradis::Plugins::Pentera
   class Importer < Dradis::Plugins::Upload::Importer
+    def self.templates
+      { evidence: 'evidence', issue: 'issue' }
+    end
+
     # The framework will call this function if the user selects this plugin from
     # the dropdown list and uploads a file.
     # @returns true if the operation was successful, false otherwise
@@ -13,6 +17,7 @@ module Dradis::Plugins::Pentera
 
       @node_cache = {}
       parse_hosts
+      parse_vulnerabilities
     end
 
     private
@@ -55,6 +60,16 @@ module Dradis::Plugins::Pentera
     end
 
     def parse_vulnerabilities
+      @data['vulnerabilities'].each do |vulnerability|
+        issue_text = template_service.process_template(template: 'issue', data: vulnerability)
+        issue = content_service.create_issue(text: issue_text, id: vulnerability['id'])
+
+        node = @node_cache[vulnerability['target_id']]
+        if node
+          evidence_text = template_service.process_template(template: 'evidence', data: vulnerability)
+          content_service.create_evidence(content: evidence_text, issue: issue, node: node)
+        end
+      end
     end
   end
 end
