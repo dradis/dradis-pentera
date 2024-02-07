@@ -31,7 +31,7 @@ describe Dradis::Plugins::Pentera::Importer do
     end
   end
 
-  it 'creates nodes, issues, and, evidence' do
+  it 'creates nodes, issues, and evidence' do
     expect(@content_service).to receive(:create_node).with(hash_including label: 'hostname').once
 
     issue_text =
