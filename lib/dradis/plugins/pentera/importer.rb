@@ -31,12 +31,12 @@ module Dradis::Plugins::Pentera
 
         node.set_property(:ip, host['ip']) if host['ip']
         node.set_property(:hostname, host['hostname']) if host['hostname']
-        node.set_property(:os, host['hostname']) if host['hostname']
+        node.set_property(:os, host['os_name']) if host['os_name']
         node.set_property(:identifier, host['id']) if host['id']
 
         if host['domain']
           node.set_property(:domain_name, host['domain']['name'])
-          node.set_property(:fqdn, host['domain']['fqdn'])
+          node.set_property(:fqdn, host['domain']['FQDN'])
           node.set_property(:netbios, host['domain']['netBIOS'])
         end
 

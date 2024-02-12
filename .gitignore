@@ -3,4 +3,6 @@
 /log/*.log
 /pkg/
 /tmp/
+
+# Ignore Combustion spec logs
 /spec/internal/
