@@ -9,7 +9,7 @@ module Dradis
           # is common across all fields for a given template (and meaningless).
           _, name = field.split('.')
 
-          @data.key?(name) ? @data[name] : 'n/a'
+          @data[name] || 'n/a'
         end
       end
     end
