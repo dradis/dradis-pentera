@@ -31,6 +31,15 @@ describe Dradis::Plugins::Pentera::Importer do
     end
   end
 
+  it 'does not import invalid json' do
+    expect(@importer).to_not receive(:parse_hosts)
+    expect(@importer).to_not receive(:parse_vulnerabilities)
+
+    expect(
+      @importer.import(file: 'spec/fixtures/files/pentera_invalid.json')
+    ).to eq false
+  end
+
   it 'creates nodes, issues, and evidence' do
     expect(@content_service).to receive(:create_node).with(hash_including label: 'hostname').once
 

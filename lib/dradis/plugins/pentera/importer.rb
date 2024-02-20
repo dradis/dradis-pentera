@@ -19,10 +19,12 @@ module Dradis::Plugins::Pentera
       parse_hosts
       parse_vulnerabilities
 
+      true
     rescue MultiJson::ParseError
       logger.error 'ERROR: invalid JSON file uploaded. '\
         'Are you sure you uploaded a Pentera file?'
-      exit(-1)
+
+      false
     end
 
     private

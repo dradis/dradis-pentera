@@ -6,3 +6,5 @@
 
 # Ignore Combustion spec logs
 /spec/internal/
+
+.DS_Store
