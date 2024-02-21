@@ -1,0 +1,45 @@
+{
+  "meta": {},
+  "hosts": [
+    {
+      "id": "host_id",
+      "target": "Host",
+      "task_run_id": "task_run_id",
+      "hostname": "hostname",
+      "ip": "192.168.1.1",
+      "domain": {
+        "name": "domain.name",
+        "FQDN": "domain.fqdn",
+        "netBIOS": "domain.netbios"
+      },
+      "os_name": "Win2016",
+      "os_type": "windows",
+      "vendor": null,
+      "services": [
+        {
+          "name": "http",
+          "port": 8008,
+          "transport": "tcp",
+          "state": "filtered"
+        }
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "id": "test_id",
+      "creation_time": 1651385523249,
+      "name": "Sample Vulnerability",
+      "summary": "Sample Description",
+      "found_on": "Target: 192.168.1.1",
+      "target": "Host",
+      "target_id": "host_id",
+      "port": 80,
+      "protocol": "http",
+      "severity": 9.3,
+      "priority": 1,
+      "insight": "Sample Insight",
+      "remediation": "Sample Remediation"
+    }
+  ]
+}

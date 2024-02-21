@@ -1,0 +1,17 @@
+#[Title]#
+%issue.name%
+
+#[Summary]#
+%issue.summary%
+
+#[Severity]#
+%issue.severity%
+
+#[Priority]#
+%issue.priority%
+
+#[Insight]#
+%issue.insight%
+
+#[Remediation]#
+%issue.remediation%
