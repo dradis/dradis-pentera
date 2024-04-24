@@ -68,12 +68,12 @@ module Dradis::Plugins::Pentera
 
     def parse_vulnerabilities
       @data['vulnerabilities'].each do |vulnerability|
-        issue_text = template_service.process_template(template: 'issue', data: vulnerability)
+        issue_text = mapping_service.apply_mapping(source: 'issue', data: vulnerability)
         issue = content_service.create_issue(text: issue_text, id: vulnerability['id'])
 
         node = @node_cache[vulnerability['target_id']]
         if node
-          evidence_text = template_service.process_template(template: 'evidence', data: vulnerability)
+          evidence_text = mapping_service.apply_mapping(source: 'evidence', data: vulnerability)
           content_service.create_evidence(content: evidence_text, issue: issue, node: node)
         end
       end
